@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>جدول المعلم</title>
+</head>
+<body>
+<h2>ادخل رقم الهوية لتشوف جدولك</h2>
+<input type="text" id="teacherId" placeholder="رقم الهوية">
+<button onclick="showSchedule()">عرض الجدول</button>
+
+<div id="pdfContainer" style="margin-top:20px;"></div>
+
+<script>
+function showSchedule() {
+    const id = document.getElementById('teacherId').value.trim();
+    const container = document.getElementById('pdfContainer');
+    container.innerHTML = '';
+    if(id) {
+        const pdfPath = `pdfs/${id}.pdf`;
+        const iframe = document.createElement('iframe');
+        iframe.src = pdfPath;
+        iframe.width = "100%";
+        iframe.height = "600px";
+        container.appendChild(iframe);
+    } else {
+        alert('رجاءً ادخل رقم الهوية');
+    }
+}
+</script>
+</body>
+</html>
