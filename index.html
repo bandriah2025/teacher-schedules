@@ -17,7 +17,8 @@ function showSchedule() {
     const container = document.getElementById('pdfContainer');
     container.innerHTML = '';
     if(id) {
-        const pdfPath = `pdfs/${id}.pdf`;
+        // تعديل المسار ليبحث مباشرة في جذر المستودع
+        const pdfPath = `${id}.pdf`;
         const iframe = document.createElement('iframe');
         iframe.src = pdfPath;
         iframe.width = "100%";
